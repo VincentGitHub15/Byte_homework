@@ -1,0 +1,141 @@
+Module:
+-a python script or a .py document (can import into python)
+-inherited classes/methods from python library 
+-your own modules or 
+-3rd party modules
+-local vs global modules
+-can download other helpful modules
+-can define functions, classes and variables
+-python object with attributes that you can use and reference
+-dir(module) will tell you all the modules variables and functions
+
+
+why make it: 
+-do not want large convoluted files 
+-want to break files into smaller files
+-almost like copy and paste without cluttering file
+------------------
+example:
+
+class Person(object)
+
+name = ""
+
+def say_hello(self):
+    print("hello my name is " {}.format(self.name))
+
+-want to access this class and function in a different module
+
+from myModule import Person (importing Person is a "dependency")
+(can now use person class)
+
+person1 = Person()
+person1.name = "Brian"
+person1.say_hello()
+this prints ... hello my name is Brian
+
+
+-------------
+example making function in examplemod.py
+
+def ex(data):
+    print(data)
+
+#now using new file and type:
+import examplemod
+
+
+examplemod.ex("test")
+
+#this prints out test
+
+OR
+from examplemod import ex
+
+ex("test")
+prints out test
+
+"add on functions and values vs standard modules"
+----------------
+
+cant just type sqrt
+need to import math module 
+type import math 
+now can use sqrt function
+math.sqrt(16)
+= 4
+-----------------
+can use help function to find out what functions are in a module
+
+can directly import a function or all at once
+from math import sqrt
+now can do sqrt(16)
+
+OR ...
+can do from math import * (this is bad because if you write different modules with same function name - wont be able to use both functions)
+safest way to import
+------------------
+example:
+import math
+math.floor(6.3)
+prints 6.0
+
+can also do
+from math import floor
+floor(6.3)
+prints 6.0
+
+------------------
+create module with this function:
+hellopython.py is module we created
+
+def hello(name):
+    return "hello, " + name
+
+import hellopython
+hellopython.hello("Francis") - save in current directory of main file you are running
+prints "hello Francis"
+
+can also do....
+
+in hellopython
+def add(num1 + num2):
+    return (num1 + num2)/2
+
+
+in main file 
+hellopython.add(8,4)
+this prints 6
+
+
+------------------
+can assign variables:
+varname = math.floor
+instead of math.floor can do varname (4.4) = 4!
+
+------------------
+
+### example:
+# Define variables:
+numberone = 1
+ageofqueen = 78
+
+# define functions
+def printhello():
+    print ("hello")
+    
+def timesfour(input):
+    print (input * 4)
+    
+# define a class
+class Piano:
+    def __init__(self):
+        self.type = raw_input("What type of piano? ")
+        self.height = raw_input("What height (in feet)? ")
+        self.price = raw_input("How much did it cost? ")
+        self.age = raw_input("How old is it (in years)? ")
+	
+    def printdetails(self):
+        print "This piano is a/an " + self.height + " foot",
+        print self.type, "piano, " + self.age, "years old and costing\
+ " + self.price + " dollars."
